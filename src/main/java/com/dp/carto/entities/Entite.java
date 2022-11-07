@@ -5,21 +5,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.io.Serializable;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class Entite implements Serializable {
+public class Entite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_role;
-    private  String nom;
+    private Long id;
+    private String nom;
+
+    @OneToMany
+    private List<Materiel> materiels;
+
+    @OneToOne
+    private User user;
+
+    @OneToMany
+    private List<Logiciel> logiciels;
 
 }

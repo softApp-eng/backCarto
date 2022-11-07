@@ -5,20 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class Logiciel implements Serializable {
+public class Logiciel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_log;
-    private  String logiciel;
-    private String version_log;
+    private Long id;
+    private String logiciel;
+    private String version;
+    private String lisence;
+    private String origine;
+
+    @ManyToOne
+    private Type type;
 }

@@ -12,21 +12,21 @@ import java.util.List;
 @Service
 public class CategorieSvc {
     @Autowired
-    private CategorieRepo categorieRepo;
+    private CategorieRepo x;
 
-    public Categorie addCat(Categorie categorie){
-        return categorieRepo.save(categorie);
+    public Categorie addCat(Categorie cat){
+        return x.save(cat);
     }
-    public List<Categorie> findAllEntite(){
-        return categorieRepo.findAll();
+    public List<Categorie> findAllCat(){
+        return x.findAll();
     }
-    public Categorie findByIdEntite(Long id){
-        return categorieRepo.findById(id).get();
+    public Categorie findCatById(Long id){
+        return x.findById(id).get();
     }
-    public Categorie updateEntite(Categorie categorie){
-        return categorieRepo.save(categorie);
+    public Categorie updateEntite(Categorie cat){
+        return x.save(cat);
     }
     public void deleteEntite(Long id){
-        categorieRepo.deleteById(id);
+        x.deleteById(id);
     }
 }
